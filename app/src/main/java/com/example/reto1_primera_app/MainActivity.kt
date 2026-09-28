@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TarjetaPresentacion() {
     // LocalContext: así un Composable "pide prestado" el contexto de Android
-    // Lo necesitamos para poder abrir el navegador desde el botón.
+    // Lo necesitamos para poder abrir el navegador o el visor desde el botón.
     val context = LocalContext.current
 
     // 1. COLUMN: apila los elementos de arriba a abajo (como un flexbox vertical)
@@ -101,9 +101,6 @@ fun TarjetaPresentacion() {
         // 4. BUTTON 1: Enlace a GitHub
         Button(
             onClick = {
-                // 1. Intent ACTION_VIEW: le decimos a Android "quiero VER este recurso"
-                // 2. Uri.parse convierte el texto de la URL en el formato que Android entiende
-                // 3. startActivity lanza esa acción
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/MateoFB07"))
                 context.startActivity(intent)
             },
@@ -117,7 +114,7 @@ fun TarjetaPresentacion() {
         // BUTTON 2: Enlace a LinkedIn
         Button(
             onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/mateo-fernández-blasco-597636408/"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/tu-usuario"))
                 context.startActivity(intent)
             },
             modifier = Modifier.fillMaxWidth(fraction = 0.8f)
@@ -127,15 +124,21 @@ fun TarjetaPresentacion() {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // BUTTON 3: Enlace a Portfolio / Web
+        // BUTTON 3: Descargar / Ver CV desde la carpeta res/raw
         Button(
             onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://tu-portfolio.com"))
+                // Ruta local directa al archivo PDF en la carpeta res/raw
+                // Asegúrate de que el archivo se llama 'cv.pdf' dentro de res/raw
+                val uriPdf = Uri.parse("android.resource://" + context.packageName + "/" + R.raw.cvingles)
+                val intent = Intent(Intent.ACTION_VIEW).apply {
+                    setDataAndType(uriPdf, "application/pdf")
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
                 context.startActivity(intent)
             },
             modifier = Modifier.fillMaxWidth(fraction = 0.8f)
         ) {
-            Text(text = "Mi Portfolio")
+            Text(text = "Descargar / Ver CV")
         }
     }
 }
