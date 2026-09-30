@@ -128,15 +128,17 @@ fun TarjetaPresentacion() {
         Text(
             text = "Ver / Descargar mi CV",
             fontSize = 18.sp,
-            fontWeight = FontWeight.Bold
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
         // Imagen del Código QR del CV
         Image(
+            // Dónde está la imagen
             painter = painterResource(id = R.drawable.qr_code),
+            // Accesibilidad
             contentDescription = "Código QR de CV",
+            // Tamaño y dimensiones
             modifier = Modifier.size(190.dp)
         )
     }

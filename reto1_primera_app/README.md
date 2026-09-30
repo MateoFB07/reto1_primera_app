@@ -9,9 +9,6 @@
 
 Una tarjeta de presentación digital interactiva que muestra una foto de perfil, nombre, rol profesional ("Desarrollador de DAM"), botones que enlazan directamente a los perfiles de GitHub y LinkedIn del autor, y un código QR para la visualización/descarga de su CV.
 
-> *Sustituye las capturas de abajo por las tuyas antes de entregar.*
-
-<!-- ![Captura de la app](captura.png) -->
 
 ## 🎯 Objetivo del reto
 
