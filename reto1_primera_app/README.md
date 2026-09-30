@@ -61,10 +61,6 @@ Partir de un proyecto Android base y modificarlo para construir una aplicación 
 - Cómo cambiar e integrar un icono personalizado con Image Asset Studio en `res/mipmap`.
 - Cómo personalizar el nombre visible de la app en `strings.xml`.
 
-## 🐞 Dificultades y cómo las resolví
-
-- **Gestión de paquetes e imports en Jetpack Compose:** Al ir agregando composables y modifiers como `CircleShape`, `ContentScale` o `LocalContext`, Android Studio no los reconocía de inicio. Lo resolví importando las dependencias necesarias de Jetpack Compose mediante `Alt + Enter`.
-- **Obtención del Context en funciones Composable:** Para poder ejecutar `startActivity` desde los eventos `onClick` de los botones, fue necesario utilizar `LocalContext.current`, lo que me permitió instanciar el `Intent` correctamente dentro del flujo de Compose.
 
 ## 📂 Estructura del proyecto
 
