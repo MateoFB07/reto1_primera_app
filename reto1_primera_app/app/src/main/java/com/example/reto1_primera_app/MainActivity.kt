@@ -135,7 +135,7 @@ fun TarjetaPresentacion() {
         // Imagen del Código QR del CV
         Image(
             // Dónde está la imagen
-            painter = painterResource(id = R.drawable.qr_code),
+            painter = painterResource(id = R.drawable.qr_bueno),
             // Accesibilidad
             contentDescription = "Código QR de CV",
             // Tamaño y dimensiones
